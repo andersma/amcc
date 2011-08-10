@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sensors SYSTEM "tree2.dtd">
+<attitude>
+  <sensors>
+    <accelerometer>
+      <property key="normalX">1636</property>
+      <property key="normalY">1655</property>
+      <property key="normalZ">2512</property>
+      <property key="oneG">760</property>
+    </accelerometer>
+    <gyroscope>
+      <property key="normalX">1857</property>
+      <property key="normalY">1861</property>
+      <property key="normalZ">1674</property>
+      <property key="oneDPS">6.7</property>
+    </gyroscope>
+  </sensors>
+</attitude>
