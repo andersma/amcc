@@ -1,0 +1,8 @@
+============================
+amcc 1.0
+============================
+
+-get sensors data from serial port
+-sensors voltage graph drawing dynamicly
+-copter attitude estimate using accelerometer
+-3D copter rendering according estimated attitude

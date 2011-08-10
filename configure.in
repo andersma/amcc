@@ -1,0 +1,28 @@
+#                                               -*- Autoconf -*-
+# Process this file with autoconf to produce a configure script.
+
+AC_PREREQ([2.64])
+AC_INIT([amcc], [1.0], [xuejiao.ma@gmail.com])
+AM_INIT_AUTOMAKE
+AC_CONFIG_SRCDIR([src/amcc.c])
+
+# Checks for programs.
+AC_PROG_CC
+AM_PROG_CC_C_O
+# Checks for libraries.
+GTK_REQUIRED=2.20.0
+GLIB_REQUIRED=2.24.1
+LIBXML_REQUIRED=2.0
+
+PKG_CHECK_MODULES(AMCC, glib-2.0 >= $GLIB_REQUIRED gtk+-2.0 >= $GTK_REQUIRED gmodule-2.0 libxml-2.0 >= $LIBXML_REQUIRED)
+PKG_CHECK_MODULES(XML, libxml-2.0 >= $LIBXML_REQUIRED)
+
+# Checks for header files.
+
+# Checks for typedefs, structures, and compiler characteristics.
+
+# Checks for library functions.
+
+AC_CONFIG_FILES([Makefile
+                 src/Makefile])
+AC_OUTPUT
