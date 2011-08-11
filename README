@@ -10,13 +10,13 @@ General Information
 
 AMCC is an utility for copter development. 
 With AMCC you can monitor copter's sensors data, you can use sensors data
-to develop you flight control algorithm. In the future, you can use AMCC to
+to develop flight control algorithm. In the future, you can use AMCC to
 config and operate copter.
 
 Licensing
 =========
 
-AMCC are released under BSD lisence
+AMCC is released under BSD lisence.
 
 Requirements
 ============
@@ -29,7 +29,7 @@ To compile AMCC, you must install following packages:
   * lib3ds-dev
   * libxml2-dev
 
-HOW-TO
+HOWTO
 ============
 
 To use AMCC to monitor/control copter, copter must support AMCC protocol, How?
@@ -43,27 +43,27 @@ packet_t p;
 	
 p.type = ANALOG_DATA_RESPONSE;
 p.raw.analog_data.channel_number = 6;
-p.raw.analog_data.value[0] = accx; /* accx is accelerometer X axes data got from ADC */
-p.raw.analog_data.value[1] = accy; /* accy is accelerometer Y axes data got from ADC */
-p.raw.analog_data.value[2] = accz; /* accz is accelerometer Z axes data got from ADC */
-p.raw.analog_data.value[3] = gyrox; /* gyrox is gyroscope X axes data got from ADC */
-p.raw.analog_data.value[4] = gyroy; /* gyroy is gyroscope Y axes data got from ADC */
-p.raw.analog_data.value[5] = gyroz; /* gyroz is gyroscope Z axes data got from ADC */
+p.raw.analog_data.value[0] = accx; /* accelerometer X axes data got from ADC */
+p.raw.analog_data.value[1] = accy; /* accelerometer Y axes data got from ADC */
+p.raw.analog_data.value[2] = accz; /* accelerometer Z axes data got from ADC */
+p.raw.analog_data.value[3] = gyrox; /* gyroscope X axes data got from ADC */
+p.raw.analog_data.value[4] = gyroy; /* gyroscope Y axes data got from ADC */
+p.raw.analog_data.value[5] = gyroz; /* gyroscope Z axes data got from ADC */
 
 packet_encode(&p);
 memcpy(buffer, &p.data, p.data_length);
-txd_buffer[p.data_length] = 0;
+buffer[p.data_length] = '\0';
 printf("%s", buffer); /* output data over serial port */	
 
 2）connecting PC with copter as below:
 
 [PC] ---serial line----- [Copter]
 
-3) #./amcc -d /dev/<SERIALDEV> -s <SPEED>
-   (replace #SERIALDEV# and #SPEED# according your environment, default is ttyUSB0, 57600)
+3) #./amcc -d /dev/SERIALDEV -s SPEED
+   (replace SERIALDEV and SPEED according your environment, default is ttyUSB0, 57600)
 
-4) Click menuitem "Monitor->Start", if copter is sending sensors data, amcc will draw Acc & Gyro 
-   voltage graph and render 3D copter.
+4) Click menuitem "Monitor->Start", if copter is sending sensors data,  AMCC will draw 
+   Acc & Gyro voltage graph and render 3D copter.
 
 
 
